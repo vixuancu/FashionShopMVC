@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "Đăng nhập";
+}
+<h2>Đăng nhập</h2>
+@if (ViewBag.Error != null)
+{
+    <p style="color: red">@ViewBag.Error</p>
+}
+<form method="post">
+    @* <div> *@
+    @*     <label>Họ và tên:</label> *@
+    @*     <input type="text" name="FullName" required /> *@
+    @* </div> *@
+    <div>
+        <label>Email:</label>
+        <input type="email" name="Email" required />
+    </div>
+    <div>
+        <label>Mật khẩu:</label>
+        <input type="password" name="PasswordHash" required />
+    </div>
+    <button type="submit">Đăng Nhập</button>
+</form>
+<p>Chưa có tài khoản đăng kí <a href="/Auth/Register">Đăng kí</a></p>
