@@ -37,8 +37,8 @@ body {
     /* Footer styling */
     footer {
         background-color: #f8f9fa;
-        padding: 2rem 0;
-        margin-top: 2rem;
+        padding: 2rem 0 1rem 0;
+        margin-top: 1rem;
     }
 
     footer h5 {
@@ -47,10 +47,11 @@ body {
         margin-bottom: 1rem;
     }
 
-    footer p {
-        margin-bottom: 0.5rem;
-        font-size: 0.9rem;
-    }
+        footer p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            line-height: 2; /* Điều chỉnh line-height nếu cần */
+        }
 
     footer ul {
         padding-left: 0;
@@ -58,22 +59,25 @@ body {
 
         footer ul li {
             margin-bottom: 0.5rem;
+            line-height: 2; /* Điều chỉnh line-height nếu cần */
         }
 
             footer ul li a {
                 text-decoration: none;
                 color: #6c757d;
                 font-size: 0.9rem;
+                
             }
 
                 footer ul li a:hover {
                     color: #000;
                 }
 
-    footer .text-center {
-        font-size: 0.9rem;
-        color: #6c757d;
-    }
+        footer .text-center {
+            line-height: 1; /* Điều chỉnh line-height nếu cần */
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
 /* Tùy chỉnh dropdown menu */
 .dropdown-menu {
     min-width: 150px; /* Độ rộng tối thiểu */

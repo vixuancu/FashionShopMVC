@@ -4,6 +4,7 @@ using FashionShopMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace FashionShopMVC.Controllers
 {
@@ -59,14 +60,35 @@ namespace FashionShopMVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(User user)
+        public IActionResult Register(User user, string ConfirmPassword)
         {
             if (_context.Users.Any(u => u.Email == user.Email))
             {
                 ViewBag.Error = "Email này đã được đăng ký!";
                 return View();
             }
-
+            if (string.IsNullOrEmpty(user.FullName))
+            {
+                ViewBag.Error = "Họ và tên không được để trống.";
+                return View();
+            }
+            if (string.IsNullOrEmpty(user.Email) || !Regex.IsMatch(user.Email, @"\S+@\S+\.\S+"))
+            {
+                ViewBag.Error = "Email không hợp lệ.";
+                return View();
+            }
+            if (string.IsNullOrEmpty(user.PasswordHash) || user.PasswordHash.Length < 6)
+            {
+                ViewBag.Error = "Mật khẩu phải có ít nhất 6 ký tự.";
+                return View();
+            }
+            // Kiểm tra mật khẩu nhập lại có khớp không
+            if (user.PasswordHash != ConfirmPassword)
+            {
+                ViewBag.Error = "Mật khẩu nhập lại không khớp!";
+                return View();
+            }
+            // mã hoá mật khẩu 
             user.PasswordHash = HashPassword(user.PasswordHash);
             _context.Users.Add(user);
             _context.SaveChanges();

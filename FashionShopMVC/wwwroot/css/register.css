@@ -1,0 +1,95 @@
+﻿/* CSS cho form đăng ký */
+.register-container {
+    /*font-family: Arial, sans-serif;*/
+    display: flex;
+    gap:20px;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    /*height: 100vh;*/
+    margin: 0;
+}
+
+.register-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+    .register-form h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .register-form .form-group {
+        margin-bottom: 15px;
+    }
+
+    .register-form label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #555;
+    }
+
+    .register-form .required {
+        color: red;
+    }
+
+    .register-form input[type="text"],
+    .register-form input[type="email"],
+    .register-form input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+        .register-form input[type="text"]:focus,
+        .register-form input[type="email"]:focus,
+        .register-form input[type="password"]:focus {
+            border-color: #28a745;
+            outline: none;
+        }
+
+    .register-form .error-message {
+        color: red;
+        font-size: 0.9em;
+        display: inline;
+        font-weight:400;
+    }
+
+    .register-form button {
+        width: 100%;
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+       
+
+    .register-form p {
+        text-align: center;
+        margin-top: 15px;
+        color: #555;
+    }
+
+    .register-form a {
+        color: #28a745;
+        text-decoration: none;
+    }
+
+        .register-form a:hover {
+            text-decoration: underline;
+        }

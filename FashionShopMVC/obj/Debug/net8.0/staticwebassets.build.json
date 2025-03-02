@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ovGFI7p1SRTNN0x//uCIn9mgzgMP/0123frqWUCmiEU=",
+  "Hash": "ZZNC8q20CylGBmlxJwFs7xLv6uftdMeX8O2NYMqZxFg=",
   "Source": "FashionShopMVC",
   "BasePath": "_content/FashionShopMVC",
   "Mode": "Default",
@@ -57,6 +57,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\ASP-NET\\FashionShopMVC\\FashionShopMVC\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FashionShopMVC.bundle.scp.css"
+    },
+    {
+      "Identity": "E:\\ASP-NET\\FashionShopMVC\\FashionShopMVC\\wwwroot\\css\\register.css",
+      "SourceId": "FashionShopMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\ASP-NET\\FashionShopMVC\\FashionShopMVC\\wwwroot\\",
+      "BasePath": "_content/FashionShopMVC",
+      "RelativePath": "css/register#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8kuj9qtyaj",
+      "Integrity": "iD3H7gzyj3iQ4W4zIvT3Bj31hBjmSbzyJtU93FnfbPA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\register.css"
     },
     {
       "Identity": "E:\\ASP-NET\\FashionShopMVC\\FashionShopMVC\\wwwroot\\css\\site.css",
@@ -1320,6 +1341,88 @@
     }
   ],
   "Endpoints": [
+    {
+      "Route": "css/register.8kuj9qtyaj.css",
+      "AssetFile": "E:\\ASP-NET\\FashionShopMVC\\FashionShopMVC\\wwwroot\\css\\register.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2151"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"iD3H7gzyj3iQ4W4zIvT3Bj31hBjmSbzyJtU93FnfbPA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 02 Mar 2025 04:25:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8kuj9qtyaj"
+        },
+        {
+          "Name": "label",
+          "Value": "css/register.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-iD3H7gzyj3iQ4W4zIvT3Bj31hBjmSbzyJtU93FnfbPA="
+        }
+      ]
+    },
+    {
+      "Route": "css/register.css",
+      "AssetFile": "E:\\ASP-NET\\FashionShopMVC\\FashionShopMVC\\wwwroot\\css\\register.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2151"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"iD3H7gzyj3iQ4W4zIvT3Bj31hBjmSbzyJtU93FnfbPA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 02 Mar 2025 04:25:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-iD3H7gzyj3iQ4W4zIvT3Bj31hBjmSbzyJtU93FnfbPA="
+        }
+      ]
+    },
     {
       "Route": "css/site.css",
       "AssetFile": "E:\\ASP-NET\\FashionShopMVC\\FashionShopMVC\\wwwroot\\css\\site.css",

@@ -2,28 +2,95 @@
     ViewData["Title"] = "Đăng ký";
 }
 
-<h2>Đăng ký</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FashionShopMVC</title>
+    <link rel="stylesheet" href="/css/register.css" /> <!-- Import file CSS riêng -->
+</head>
+<body>
+    <div class="register-container">
+        <h2>Đăng ký</h2>
 
-@if (ViewBag.Error != null)
-{
-    <p style="color: red">@ViewBag.Error</p>
-}
+        @if (ViewBag.Error != null)
+        {
+            <p style="color: red">@ViewBag.Error</p>
+        }
 
-<form method="post">
-    <div>
-        <label>Họ và tên:</label>
-        <input type="text" name="FullName"  />
-    </div>
-    <div>
-        <label>Email:</label>
-        <input type="email" name="Email"  />
-    </div>
-    <div>
-        <label>Mật khẩu:</label>
-        <input type="password" name="PasswordHash"  />
-    </div>
-   
-    <button type="submit">Đăng ký</button>
-</form>
-<p>Đã có tài khoản? <a href="/Auth/Login">Đăng nhập</a></p>
+        <form class="register-form" method="post" asp-action="Register" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="FullName"><span class="required">*</span> Họ và tên: <span id="FullNameError" class="error-message"></span></label>
+                <input type="text" name="FullName" id="FullName" />
+                
+            </div>
+            <div class="form-group">
+                <label for="Email"><span class="required">*</span> Email: <span id="EmailError" class="error-message"></span></label>
+                <input type="text" name="Email" id="Email" />
+                
+            </div>
+            <div class="form-group">
+                <label for="PasswordHash"><span class="required">*</span> Mật khẩu: <span id="PasswordError" class="error-message"></span></label>
+                <input type="password" name="PasswordHash" id="PasswordHash" />
+                
+            </div>
+            <div class="form-group">
+                <label for="ConfirmPassword"><span class="required">*</span> Nhập lại mật khẩu: <span id="ConfirmPasswordError" class="error-message"></span></label>
+                <input type="password" name="ConfirmPassword" id="ConfirmPassword" />
+                
+            </div>
+            <div class="form-group">
+                <button type="submit">Đăng ký</button>
+            </div>
+        </form>
 
+        <p>Đã có tài khoản? <a href="/Auth/Login">Đăng nhập</a></p>
+    </div>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+
+            // Lấy giá trị từ input
+            let fullName = document.getElementById("FullName").value.trim();
+            let email = document.getElementById("Email").value.trim();
+            let password = document.getElementById("PasswordHash").value;
+            let confirmPassword = document.getElementById("ConfirmPassword").value;
+
+            // Xóa lỗi cũ
+            document.getElementById("FullNameError").textContent = "";
+            document.getElementById("EmailError").textContent = "";
+            document.getElementById("PasswordError").textContent = "";
+            document.getElementById("ConfirmPasswordError").textContent = "";
+
+            // Kiểm tra Họ và tên
+            if (fullName === "") {
+                document.getElementById("FullNameError").textContent = "Họ và tên không được để trống.";
+                isValid = false;
+            }
+
+            // Kiểm tra Email hợp lệ
+            const emailRegex = /\S+@@\S+\.\S+/;
+            if (email === "" || !emailRegex.test(email)) {
+                document.getElementById("EmailError").textContent = "Email không hợp lệ.";
+                isValid = false;
+            }
+
+            // Kiểm tra mật khẩu
+            if (password.length < 6) {
+                document.getElementById("PasswordError").textContent = "Mật khẩu phải có ít nhất 6 ký tự.";
+                isValid = false;
+            }
+
+            // Kiểm tra nhập lại mật khẩu
+            if (password !== confirmPassword) {
+                document.getElementById("ConfirmPasswordError").textContent = "Mật khẩu nhập lại không khớp.";
+                isValid = false;
+            }
+
+            return isValid; // Nếu có lỗi, form sẽ không submit
+        }
+    </script>
+</body>
+</html>

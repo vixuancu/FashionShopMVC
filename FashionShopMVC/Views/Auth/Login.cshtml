@@ -1,25 +1,75 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Đăng nhập";
 }
-<h2>Đăng nhập</h2>
-@if (ViewBag.Error != null)
-{
-    <p style="color: red">@ViewBag.Error</p>
-}
-<form method="post">
-    @* <div> *@
-    @*     <label>Họ và tên:</label> *@
-    @*     <input type="text" name="FullName" required /> *@
-    @* </div> *@
-    <div>
-        <label>Email:</label>
-        <input type="email" name="Email" required />
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FashionShopMVC</title>
+    <link rel="stylesheet" href="~/css/register.css" /> <!-- Sử dụng cùng file CSS như trang đăng ký -->
+</head>
+<body>
+    <div class="register-container">
+        <h2>Đăng nhập</h2>
+
+        @if (ViewBag.Error != null)
+        {
+            <p style="color: red">@ViewBag.Error</p>
+        }
+
+        <form class="register-form" method="post" asp-action="Login" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="Email">Email: <span class="required">*</span></label>
+                <input type="email" name="Email" id="Email"  />
+                <span id="EmailError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="PasswordHash">Mật khẩu: <span class="required">*</span></label>
+                <input type="password" name="PasswordHash" id="PasswordHash"  />
+                <span id="PasswordError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit">Đăng nhập</button>
+            </div>
+        </form>
+
+        <p>Chưa có tài khoản? <a href="/Auth/Register">Đăng ký</a></p>
     </div>
-    <div>
-        <label>Mật khẩu:</label>
-        <input type="password" name="PasswordHash" required />
-    </div>
-    <button type="submit">Đăng Nhập</button>
-</form>
-<p>Chưa có tài khoản đăng kí <a href="/Auth/Register">Đăng kí</a></p>
+    <script>
+    function validateForm() {
+        let isValid = true;
+
+        // Lấy giá trị từ input
+        const email = document.getElementById("Email").value.trim();
+        const password = document.getElementById("PasswordHash").value.trim();
+
+        // Xóa thông báo lỗi cũ
+        document.getElementById("EmailError").textContent = "";
+        document.getElementById("PasswordError").textContent = "";
+
+        // Validate Email
+            const emailRegex = /\S+@@\S+\.\S+/;
+        if (email === "") {
+            document.getElementById("EmailError").textContent = "Email không được để trống.";
+            isValid = false;
+        } else if (!emailRegex.test(email)) {
+            document.getElementById("EmailError").textContent = "Email không hợp lệ.";
+            isValid = false;
+        }
+
+        // Validate Password
+        if (password === "") {
+            document.getElementById("PasswordError").textContent = "Mật khẩu không được để trống.";
+            isValid = false;
+        } else if (password.length < 6) {
+            document.getElementById("PasswordError").textContent = "Mật khẩu phải có ít nhất 6 ký tự.";
+            isValid = false;
+        }
+
+        return isValid; // Nếu có lỗi, form sẽ không submit
+    }
+</script>
+</body>
+</html>

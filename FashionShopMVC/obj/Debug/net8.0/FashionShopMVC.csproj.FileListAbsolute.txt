@@ -170,3 +170,4 @@ E:\ASP-NET\FashionShopMVC\FashionShopMVC\obj\Debug\net8.0\FashionShopMVC.pdb
 E:\ASP-NET\FashionShopMVC\FashionShopMVC\obj\Debug\net8.0\FashionShopMVC.genruntimeconfig.cache
 E:\ASP-NET\FashionShopMVC\FashionShopMVC\obj\Debug\net8.0\ref\FashionShopMVC.dll
 E:\ASP-NET\FashionShopMVC\FashionShopMVC\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+E:\ASP-NET\FashionShopMVC\FashionShopMVC\obj\Debug\net8.0\FashionShopMVC.sourcelink.json

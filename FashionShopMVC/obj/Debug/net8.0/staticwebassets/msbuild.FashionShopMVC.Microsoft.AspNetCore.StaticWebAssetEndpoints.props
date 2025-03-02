@@ -1,5 +1,17 @@
 ﻿<Project>
   <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/FashionShopMVC/css/register.8kuj9qtyaj.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\register.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"8kuj9qtyaj"},{"Name":"integrity","Value":"sha256-iD3H7gzyj3iQ4W4zIvT3Bj31hBjmSbzyJtU93FnfbPA="},{"Name":"label","Value":"_content/FashionShopMVC/css/register.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2151"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022iD3H7gzyj3iQ4W4zIvT3Bj31hBjmSbzyJtU93FnfbPA=\u0022"},{"Name":"Last-Modified","Value":"Sun, 02 Mar 2025 04:25:13 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/FashionShopMVC/css/register.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\register.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-iD3H7gzyj3iQ4W4zIvT3Bj31hBjmSbzyJtU93FnfbPA="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2151"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022iD3H7gzyj3iQ4W4zIvT3Bj31hBjmSbzyJtU93FnfbPA=\u0022"},{"Name":"Last-Modified","Value":"Sun, 02 Mar 2025 04:25:13 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/FashionShopMVC/css/site.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
