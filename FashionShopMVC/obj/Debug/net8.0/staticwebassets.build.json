@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ZZNC8q20CylGBmlxJwFs7xLv6uftdMeX8O2NYMqZxFg=",
+  "Hash": "mmGiQhadNkmuxCKiCg+v5H/hWf0Vgp83+5uaKjSFzOo=",
   "Source": "FashionShopMVC",
   "BasePath": "_content/FashionShopMVC",
   "Mode": "Default",
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "8kuj9qtyaj",
-      "Integrity": "iD3H7gzyj3iQ4W4zIvT3Bj31hBjmSbzyJtU93FnfbPA=",
+      "Fingerprint": "6db2ukpf8w",
+      "Integrity": "CqRd+In67+NjeNc9x1Hy/e7oT26UH/YIFZ1sKkYeQR8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\register.css"
@@ -94,8 +94,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "pqch2ex2w7",
-      "Integrity": "P9tR9w9e7ne7lihMqszl8PuA5Selndg674bXCumcD4A=",
+      "Fingerprint": "2vg29ya4t4",
+      "Integrity": "Ii0Bpzf3DADm/hCNMLcKlMtXjYhmaLmg7qXeVX79aKA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -1342,7 +1342,7 @@
   ],
   "Endpoints": [
     {
-      "Route": "css/register.8kuj9qtyaj.css",
+      "Route": "css/register.6db2ukpf8w.css",
       "AssetFile": "E:\\ASP-NET\\FashionShopMVC\\FashionShopMVC\\wwwroot\\css\\register.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1352,7 +1352,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2151"
+          "Value": "2087"
         },
         {
           "Name": "Content-Type",
@@ -1360,11 +1360,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"iD3H7gzyj3iQ4W4zIvT3Bj31hBjmSbzyJtU93FnfbPA=\""
+          "Value": "\"CqRd+In67+NjeNc9x1Hy/e7oT26UH/YIFZ1sKkYeQR8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 02 Mar 2025 04:25:13 GMT"
+          "Value": "Sun, 02 Mar 2025 05:15:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1374,7 +1374,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "8kuj9qtyaj"
+          "Value": "6db2ukpf8w"
         },
         {
           "Name": "label",
@@ -1382,7 +1382,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-iD3H7gzyj3iQ4W4zIvT3Bj31hBjmSbzyJtU93FnfbPA="
+          "Value": "sha256-CqRd+In67+NjeNc9x1Hy/e7oT26UH/YIFZ1sKkYeQR8="
         }
       ]
     },
@@ -1397,7 +1397,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2151"
+          "Value": "2087"
         },
         {
           "Name": "Content-Type",
@@ -1405,11 +1405,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"iD3H7gzyj3iQ4W4zIvT3Bj31hBjmSbzyJtU93FnfbPA=\""
+          "Value": "\"CqRd+In67+NjeNc9x1Hy/e7oT26UH/YIFZ1sKkYeQR8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 02 Mar 2025 04:25:13 GMT"
+          "Value": "Sun, 02 Mar 2025 05:15:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1419,7 +1419,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-iD3H7gzyj3iQ4W4zIvT3Bj31hBjmSbzyJtU93FnfbPA="
+          "Value": "sha256-CqRd+In67+NjeNc9x1Hy/e7oT26UH/YIFZ1sKkYeQR8="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.2vg29ya4t4.css",
+      "AssetFile": "E:\\ASP-NET\\FashionShopMVC\\FashionShopMVC\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2035"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Ii0Bpzf3DADm/hCNMLcKlMtXjYhmaLmg7qXeVX79aKA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 02 Mar 2025 05:23:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2vg29ya4t4"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Ii0Bpzf3DADm/hCNMLcKlMtXjYhmaLmg7qXeVX79aKA="
         }
       ]
     },
@@ -1434,7 +1479,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1753"
+          "Value": "2035"
         },
         {
           "Name": "Content-Type",
@@ -1442,11 +1487,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"P9tR9w9e7ne7lihMqszl8PuA5Selndg674bXCumcD4A=\""
+          "Value": "\"Ii0Bpzf3DADm/hCNMLcKlMtXjYhmaLmg7qXeVX79aKA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 27 Feb 2025 18:14:34 GMT"
+          "Value": "Sun, 02 Mar 2025 05:23:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1456,52 +1501,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-P9tR9w9e7ne7lihMqszl8PuA5Selndg674bXCumcD4A="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.pqch2ex2w7.css",
-      "AssetFile": "E:\\ASP-NET\\FashionShopMVC\\FashionShopMVC\\wwwroot\\css\\site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1753"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"P9tR9w9e7ne7lihMqszl8PuA5Selndg674bXCumcD4A=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 27 Feb 2025 18:14:34 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "pqch2ex2w7"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-P9tR9w9e7ne7lihMqszl8PuA5Selndg674bXCumcD4A="
+          "Value": "sha256-Ii0Bpzf3DADm/hCNMLcKlMtXjYhmaLmg7qXeVX79aKA="
         }
       ]
     },

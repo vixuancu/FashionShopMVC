@@ -32,16 +32,39 @@ namespace FashionShopMVC.Controllers
 
         // Xử lý thêm sản phẩm
         [HttpPost]
-        public IActionResult Create(Product product)
+        public async Task<IActionResult> Create(Product product, IFormFile imageFile)
         {
-            if (ModelState.IsValid) // Kiểm tra dữ liệu hợp lệ
+            if (ModelState.IsValid)
             {
-                product.CreatedAt = DateTime.Now; // Đặt thời gian tạo
-                _context.Products.Add(product); // Thêm sản phẩm vào database
-                _context.SaveChanges(); // Lưu thay đổi
-                return RedirectToAction("Index"); // Chuyển hướng về trang danh sách sản phẩm
+                if (imageFile != null && imageFile.Length > 0)
+                {
+                    
+                    // Tạo tên file duy nhất- làm đơn giản ko tạo tên file duy nhất
+                    //var fileName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
+                    var fileName = Path.GetExtension(imageFile.FileName);
+
+                    // Đường dẫn lưu file
+                    var filePath = Path.Combine("wwwroot/images", fileName);
+
+                    // Lưu file vào thư mục wwwroot/images
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await imageFile.CopyToAsync(stream);
+                    }
+
+                    // Lưu đường dẫn ảnh vào database
+                    product.ImageUrl = "/images/" + fileName;
+                }else
+                {
+                    Console.WriteLine("no file upload");
+                }
+
+                product.CreatedAt = DateTime.Now;
+                _context.Products.Add(product);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
             }
-            return View(product); // Nếu dữ liệu không hợp lệ, trả về view với thông báo lỗi
+            return View(product);
         }
 
         // Xóa sản phẩm
