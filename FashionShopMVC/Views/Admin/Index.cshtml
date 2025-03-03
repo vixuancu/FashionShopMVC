@@ -1,43 +1,43 @@
 ﻿@model List<Product>
 
-<h2>Quản lý sản phẩm</h2>
+    <div class="container">
+    <h2>Quản lý sản phẩm</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Tên sản phẩm</th>
-            <th>Mô tả</th>
-            <th>Giá</th>
-            <th>Hình ảnh</th>
-            <th>Danh mục</th>
-            <th>Ngày tạo</th>
-            <th>ảnh</th>
-            <th>Thao tác</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var product in Model)
-        {
+    <table class="table">
+        <thead>
             <tr>
-                <td>@product.Name</td>
-                <td>@product.Description</td>
-                <td>@product.Price.ToString("C")</td>
-                <td>
-                    <img src="@product.ImageUrl" alt="@product.Name" style="width: 100px;" />
-                </td>
-                <td>@product.Category</td>
-                <td>@product.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
-                <td>
-                    <img src="@product.ImageUrl" alt="@product.Name" style="width: 100px;" />
-                </td>
-                <td>
-                    <form method="post" asp-action="Delete" asp-route-id="@product.Id">
-                        <button type="submit" class="btn btn-danger">Xóa</button>
-                    </form>
-                </td>
+                <th>Tên sản phẩm</th>
+                <th>Mô tả</th>
+                <th>Giá</th>
+                <th>Hình ảnh</th>
+                <th>Danh mục</th>
+                <th>Ngày tạo</th>
+                <th>Thao tác</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Description</td>
+                    <td>@product.Price.ToString("C")</td>
+                    <td>
+                        <img src="@product.ImageUrl" alt="@product.Name" style="width: 100px;" />
+                    </td>
+                    <td>@product.Category</td>
+                    <td>@product.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
+                   
+                    <td>
+                        <form method="post" asp-action="Delete" asp-route-id="@product.Id">
+                            <button type="submit" class="btn btn-danger">Xóa</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
-<a asp-action="Create" class="btn btn-primary">Thêm sản phẩm</a>
+    <a asp-action="Create" class="btn btn-primary">Thêm sản phẩm</a>
+    </div>
+

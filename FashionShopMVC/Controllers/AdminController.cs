@@ -34,14 +34,22 @@ namespace FashionShopMVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Product product, IFormFile imageFile)
         {
-            if (ModelState.IsValid)
-            {
+            
+            // Kiểm tra dữ liệu nhận được
+            Console.WriteLine($"Name: {product.Name}, Price: {product.Price}, Image: {imageFile?.FileName}");
+            
+                // Kiểm tra nếu không có file upload
+                if (imageFile == null || imageFile.Length == 0)
+                {
+                    ModelState.AddModelError("ImageFile", "Ảnh sản phẩm không được để trống.test");
+                    return View(product);
+                }
                 if (imageFile != null && imageFile.Length > 0)
                 {
-                    
+
                     // Tạo tên file duy nhất- làm đơn giản ko tạo tên file duy nhất
-                    //var fileName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
-                    var fileName = Path.GetExtension(imageFile.FileName);
+                    var fileName = DateTime.Now.Ticks + "_" + imageFile.FileName;
+
 
                     // Đường dẫn lưu file
                     var filePath = Path.Combine("wwwroot/images", fileName);
@@ -54,17 +62,20 @@ namespace FashionShopMVC.Controllers
 
                     // Lưu đường dẫn ảnh vào database
                     product.ImageUrl = "/images/" + fileName;
-                }else
-                {
-                    Console.WriteLine("no file upload");
-                }
-
                 product.CreatedAt = DateTime.Now;
                 _context.Products.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
+
             }
-            return View(product);
+            else
+                {
+                    Console.WriteLine("no file upload");
+                }
+
+                
+            
+                return View(product);
         }
 
         // Xóa sản phẩm

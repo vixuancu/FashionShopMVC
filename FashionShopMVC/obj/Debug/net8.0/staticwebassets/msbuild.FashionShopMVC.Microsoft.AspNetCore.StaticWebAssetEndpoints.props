@@ -12,17 +12,17 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-CqRd\u002BIn67\u002BNjeNc9x1Hy/e7oT26UH/YIFZ1sKkYeQR8="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2087"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022CqRd\u002BIn67\u002BNjeNc9x1Hy/e7oT26UH/YIFZ1sKkYeQR8=\u0022"},{"Name":"Last-Modified","Value":"Sun, 02 Mar 2025 05:15:34 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/FashionShopMVC/css/site.2vg29ya4t4.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"2vg29ya4t4"},{"Name":"integrity","Value":"sha256-Ii0Bpzf3DADm/hCNMLcKlMtXjYhmaLmg7qXeVX79aKA="},{"Name":"label","Value":"_content/FashionShopMVC/css/site.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2035"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Ii0Bpzf3DADm/hCNMLcKlMtXjYhmaLmg7qXeVX79aKA=\u0022"},{"Name":"Last-Modified","Value":"Sun, 02 Mar 2025 05:23:34 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/FashionShopMVC/css/site.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Ii0Bpzf3DADm/hCNMLcKlMtXjYhmaLmg7qXeVX79aKA="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2035"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Ii0Bpzf3DADm/hCNMLcKlMtXjYhmaLmg7qXeVX79aKA=\u0022"},{"Name":"Last-Modified","Value":"Sun, 02 Mar 2025 05:23:34 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-DxBGnL4XQ8xpYabYr5EzFB6/WeK3XhLUb6/PwzC9gu8="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2207"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022DxBGnL4XQ8xpYabYr5EzFB6/WeK3XhLUb6/PwzC9gu8=\u0022"},{"Name":"Last-Modified","Value":"Mon, 03 Mar 2025 07:33:41 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/FashionShopMVC/css/site.fkfl2jqfkm.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"fkfl2jqfkm"},{"Name":"integrity","Value":"sha256-DxBGnL4XQ8xpYabYr5EzFB6/WeK3XhLUb6/PwzC9gu8="},{"Name":"label","Value":"_content/FashionShopMVC/css/site.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2207"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022DxBGnL4XQ8xpYabYr5EzFB6/WeK3XhLUb6/PwzC9gu8=\u0022"},{"Name":"Last-Modified","Value":"Mon, 03 Mar 2025 07:33:41 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/FashionShopMVC/FashionShopMVC.80azufuf18.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FashionShopMVC.80azufuf18.bundle.scp.css'))</AssetFile>
@@ -47,6 +47,30 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Jtxf9L\u002B5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"5430"},{"Name":"Content-Type","Value":"image/x-icon"},{"Name":"ETag","Value":"\u0022Jtxf9L\u002B5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\u0022"},{"Name":"Last-Modified","Value":"Mon, 24 Feb 2025 15:52:37 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/FashionShopMVC/images/banner.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\banner.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-DG29DesnHwQMnxCbkMjebKVf2\u002BUZAdyyIrBcMpurPaA="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"153017"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022DG29DesnHwQMnxCbkMjebKVf2\u002BUZAdyyIrBcMpurPaA=\u0022"},{"Name":"Last-Modified","Value":"Sun, 02 Mar 2025 15:07:40 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/FashionShopMVC/images/banner.wnfbxaa2qw.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\banner.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"wnfbxaa2qw"},{"Name":"integrity","Value":"sha256-DG29DesnHwQMnxCbkMjebKVf2\u002BUZAdyyIrBcMpurPaA="},{"Name":"label","Value":"_content/FashionShopMVC/images/banner.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"153017"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022DG29DesnHwQMnxCbkMjebKVf2\u002BUZAdyyIrBcMpurPaA=\u0022"},{"Name":"Last-Modified","Value":"Sun, 02 Mar 2025 15:07:40 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/FashionShopMVC/images/banner2.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\banner2.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-eSSbRX0GbrWrsvIgVBHuveej9OOqidBMtppp5kN0RNo="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"97277"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022eSSbRX0GbrWrsvIgVBHuveej9OOqidBMtppp5kN0RNo=\u0022"},{"Name":"Last-Modified","Value":"Sun, 02 Mar 2025 16:28:34 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/FashionShopMVC/images/banner2.n8xpvq05ke.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\banner2.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"n8xpvq05ke"},{"Name":"integrity","Value":"sha256-eSSbRX0GbrWrsvIgVBHuveej9OOqidBMtppp5kN0RNo="},{"Name":"label","Value":"_content/FashionShopMVC/images/banner2.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"97277"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022eSSbRX0GbrWrsvIgVBHuveej9OOqidBMtppp5kN0RNo=\u0022"},{"Name":"Last-Modified","Value":"Sun, 02 Mar 2025 16:28:34 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/FashionShopMVC/js/site.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))</AssetFile>

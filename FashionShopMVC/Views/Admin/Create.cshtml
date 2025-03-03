@@ -1,39 +1,84 @@
 ﻿@model Product
 
-<h2>Thêm sản phẩm</h2>
+<div class="container">
+    <h2>Thêm sản phẩm</h2>
 
-<form method="post" asp-action="Create" enctype="multipart/form-data">
-    <div class="form-group">
-        <label asp-for="Name"></label>
-        <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Description"></label>
-        <textarea asp-for="Description" class="form-control"></textarea>
-        <span asp-validation-for="Description" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Price"></label>
-        <input asp-for="Price" class="form-control" />
-        <span asp-validation-for="Price" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Category"></label>
-        <select asp-for="Category" class="form-control">
-            <option value="">-- Chọn danh mục --</option>
-            <option value="GiayNu">Giày Nữ</option>
-            <option value="GiayNam">Giày Nam</option>
-            <option value="Balo">Balo</option>
-            <option value="PhuKien">Phụ Kiện</option>
-        </select>
-        <span asp-validation-for="Category" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="ImageUrl">Ảnh sản phẩm</label>
-        <input type="file" name="imageFile" class="form-control" />
-        <span asp-validation-for="ImageUrl" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary">Thêm</button>
-    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
-</form>
+    <form method="post" asp-action="Create" enctype="multipart/form-data" onsubmit="return validateForm()" >
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control"  name="Name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <textarea asp-for="Description" class="form-control"  name="Description"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Price"></label>
+            <input asp-for="Price" class="form-control" name="Price" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Category"></label>
+            <select asp-for="Category" class="form-control"  name="Category">
+                <option value="">-- Chọn danh mục --</option>
+                <option value="GiayNu">Giày Nữ</option>
+                <option value="GiayNam">Giày Nam</option>
+                <option value="Balo">Balo</option>
+                <option value="PhuKien">Phụ Kiện</option>
+            </select>
+            <span asp-validation-for="Category" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label>Ảnh sản phẩm</label>
+            <input type="file" name="imageFile" class="form-control"   />
+            <span class="text-danger" id="imageError"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Thêm</button>
+        <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+    </form>
+</div>
+
+<script>
+    function validateForm() {
+        let isValid = true;
+
+        // Lấy giá trị các input
+
+    const name = document.querySelector("[name='Name']").value.trim();
+    const description = document.querySelector("[name='Description']").value.trim();
+    const price = document.querySelector("[name='Price']").value.trim();
+    const category = document.querySelector("[name='Category']").value;
+    const imageFile = document.getElementById("imageFile").files.length;
+        console.log('submit form');
+        // Kiểm tra từng trường
+        if (name === "") {
+            alert("Tên sản phẩm không được để trống.");
+            isValid = false;
+        }
+        if (description === "") {
+            alert("Mô tả không được để trống.");
+            isValid = false;
+        }
+        if (price === "" || isNaN(price) || parseFloat(price) <= 0) {
+            alert("Giá sản phẩm phải là số và lớn hơn 0.");
+            isValid = false;
+        }
+        if (category === "") {
+            alert("Vui lòng chọn danh mục.");
+            isValid = false;
+        }
+
+        if (imageFile === 0) {
+            document.getElementById("imageError").innerText = "Ảnh sản phẩm không được để trống.";
+            isValid = false;
+        } else {
+            document.getElementById("imageError").innerText = ""; // Xóa lỗi nếu có ảnh
+        }
+
+        // Nếu có lỗi, không submit form
+        return isValid;
+    }
+    
+</script>

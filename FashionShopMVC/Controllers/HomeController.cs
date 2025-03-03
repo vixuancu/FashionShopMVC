@@ -1,4 +1,5 @@
-using System.Diagnostics;
+﻿using System.Diagnostics;
+using FashionShopMVC.Data;
 using FashionShopMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,32 +8,39 @@ namespace FashionShopMVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ApplicationDbContext _context; // Database Context
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            _context = context;
+
         }
 
         public IActionResult Index()
         {
-            return View();
+            var products = _context.Products.Take(12).ToList(); // Lấy 12 sản phẩm đầu tiên
+            return View(products);
         }
 
         public IActionResult Giaynu()
         {
-            return View();
+            var products = _context.Products.Where(p => p.Category == "GiayNu").ToList();
+            return View(products);
         }
         public IActionResult Giaynam()
         {
-            return View();
+            var products = _context.Products.Where(p => p.Category == "GiayNam").ToList();
+            return View(products);
         }
         public IActionResult BaLo()
         {
-            return View();
+            var products = _context.Products.Where(p => p.Category == "Balo").ToList();
+            return View(products);
         }
         public IActionResult PhuKien()
         {
-            return View();
+            var products = _context.Products.Where(p => p.Category == "PhuKien").ToList();
+            return View(products);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

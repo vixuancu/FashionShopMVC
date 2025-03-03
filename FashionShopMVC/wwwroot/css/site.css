@@ -90,3 +90,15 @@ body {
 .dropdown-item:hover {
         background-color: #f8f9fa; /* Màu nền khi hover */
     }
+.card {
+    transition: transform 0.3s;
+}
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
