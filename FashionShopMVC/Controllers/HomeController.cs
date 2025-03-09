@@ -42,6 +42,15 @@ namespace FashionShopMVC.Controllers
             var products = _context.Products.Where(p => p.Category == "PhuKien").ToList();
             return View(products);
         }
+        public IActionResult Details(int id)
+        {
+            var product = _context.Products.FirstOrDefault(p => p.Id == id);
+            if (product == null)
+            {
+                return NotFound(); // Trả về 404 nếu không có sản phẩm
+            }
+            return View(product);
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
