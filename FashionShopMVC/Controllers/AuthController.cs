@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http; //  thư viện này để sử dụng Session
 using FashionShopMVC.Data;
-using FashionShopMVC.Models;
+
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using FashionShopMVC.Models;
 
 namespace FashionShopMVC.Controllers
 {
