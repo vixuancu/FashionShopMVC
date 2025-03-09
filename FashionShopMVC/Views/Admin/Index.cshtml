@@ -1,6 +1,6 @@
 ﻿@model List<Product>
 
-    <div class="container">
+<div class="container">
     <h2>Quản lý sản phẩm</h2>
 
     <table class="table">
@@ -21,7 +21,7 @@
                 <tr>
                     <td>@product.Name</td>
                     <td>@product.Description</td>
-                    <td>@product.Price.ToString("C")</td>
+                    <td>@product.Price đ</td>
                     <td>
                         <img src="@product.ImageUrl" alt="@product.Name" style="width: 100px;" />
                     </td>
@@ -39,5 +39,5 @@
     </table>
 
     <a asp-action="Create" class="btn btn-primary">Thêm sản phẩm</a>
-    </div>
+</div>
 

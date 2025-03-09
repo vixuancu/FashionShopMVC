@@ -14,7 +14,7 @@ namespace FashionShopMVC.Models
         [Required(ErrorMessage = "Giá không được để trống.")]
         
         [Range(0, double.MaxValue, ErrorMessage = "Giá phải là số dương.")]
-        [Precision(18, 2)]  // precision: tổng chữ số, scale: chữ số sau dấu phẩy
+        [Precision(18, 0)]  // precision: tổng chữ số, scale: chữ số sau dấu phẩy
         public decimal Price { get; set; }
         // public int Stock { get; set; }
         

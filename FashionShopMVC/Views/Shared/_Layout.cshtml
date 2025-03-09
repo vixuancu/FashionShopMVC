@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/FashionShopMVC.styles.css" asp-append-version="true" />
+    
     <!-- Các thẻ meta và link khác -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico">
 </head>
 <body>
-    <header class="box-shadow">
+    <header class="box-shadow" >
 
         <nav class="container navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom  ">
             <div class="container-fluid">
@@ -55,7 +58,7 @@
                                 <i class="fas fa-user"></i> <!-- Icon person -->
                             </a>
                            
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu dropdown-menu-end"  aria-labelledby="navbarDropdown">
                                 @if (Context.Session.GetString("UserName") != null)
                                 {
                                     <!-- Đã đăng nhập -->
@@ -84,7 +87,7 @@
     </header>
     <div >
         
-        <main role="main"  style="height:auto; margin-bottom:300px">
+        <main role="main"  style="height:auto; margin-bottom:300px " >
             @RenderBody()
         </main>
     </div>
