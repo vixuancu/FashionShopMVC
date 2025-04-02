@@ -5,43 +5,7 @@
     var userAddress = Context.Session.GetString("UserAddress") ?? "";
     var userPhone = Context.Session.GetString("UserPhone") ?? "";
 }
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@Model.Name</title>
-    <link rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
-    <style>
-        .product-image {
-            width: 100%;
-            border-radius: 5px;
-        }
 
-        .size-option {
-            border: 1px solid #ccc;
-            padding: 8px 12px;
-            margin-right: 5px;
-            display: inline-block;
-        }
-
-            .size-option:first-child {
-                border: 2px solid red; /* Chọn mặc định */
-            }
-
-        .star {
-            color: orange;
-            font-size: 15px;
-        }
-
-        .tick {
-            font-size: 16px;
-            margin-right: 10px;
-        }
-    </style>
-</head>
-<body>
     <div class="container mt-5">
         <div class="row">
             <!-- Ảnh sản phẩm -->
@@ -81,7 +45,7 @@
 
                 <!-- Nút hành động -->
                 <div class="mt-4 text-center text-md-start">
-                    <button class="btn btn-danger btn-lg me-3" onclick="showOrderForm()">Mua ngay</button>
+                    <button class="btn btn-danger btn-lg me-3" data-bs-toggle="modal" data-bs-target="#orderModal" ">Mua ngay</button>
                     <button class="btn btn-outline-danger btn-lg" onclick="addToCart(@Model.Id)">
                         <i class="bi bi-cart4"></i> Thêm vào giỏ hàng
                     </button>
@@ -94,42 +58,83 @@
                     <li><i class="bi bi-arrow-left-right tick"></i> Đổi trả dễ dàng trong 7 ngày</li>
                 </ul>
             </div>
-            <!-- Form đặt hàng -->
-            <div id="orderForm" style="display: none; margin-top: 20px;">
-                <h5>Thông tin đặt hàng</h5>
-                <form method="post" action="/Order/PlaceOrder">
-                    <input type="hidden" name="UserId" value="@userId">
-                    <input type="hidden" name="ProductId" value="@Model.Id">
-                    <input type="hidden" name="Price" value="@Model.Price">
-                    <div class="mb-3">
-                        <label>Họ tên</label>
-                        <input type="text" name="Name" class="form-control" value="@userName" required>
+           
+        </div>
+        <!-- Modal chứa form đặt hàng -->
+        <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" data-bs-backdrop="static" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="orderModalLabel">Thông tin đặt hàng</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="mb-3">
-                        <label>Địa chỉ</label>
-                        <input type="text" name="Address" class="form-control" value="@userAddress" required>
+                    <div class="modal-body">
+                    <form id="orderForm">
+                        <input type="hidden" name="UserId" value="@userId" />
+                        <input type="hidden" name="ProductId" value="@Model.Id" />
+                        <input type="hidden" name="Price" value="@Model.Price" />
+                        <div class="mb-3">
+                            <label>Họ tên</label>
+                            <input type="text" name="Name" class="form-control" value="@userName" required />
+                        </div>
+                        <div class="mb-3">
+                            <label>Địa chỉ</label>
+                            <input type="text" name="Address" class="form-control" value="@userAddress" required />
+                        </div>
+                        <div class="mb-3">
+                            <label>Số điện thoại</label>
+                            <input type="text" name="Phone" class="form-control" value="@userPhone" required />
+                        </div>
+                        <div class="mb-3">
+                            <label>Phương thức thanh toán:</label><br>
+                            <input type="radio" name="PaymentMethod" value="COD" checked /> Thanh toán khi nhận hàng
+                            <input type="radio" name="PaymentMethod" value="Bank" /> Chuyển khoản
+                        </div>
+                        <button type="submit" class="btn btn-success " >Đặt hàng</button>
+                    </form>
                     </div>
-                    <div class="mb-3">
-                        <label>Số điện thoại</label>
-                        <input type="text" name="Phone" class="form-control" value="@userPhone" required>
-                    </div>
-                    <div class="mb-3">
-                        <label>Phương thức thanh toán:</label><br>
-                        <input type="radio" name="PaymentMethod" value="COD" checked> Thanh toán khi nhận hàng
-                        <input type="radio" name="PaymentMethod" value="Bank"> Chuyển khoản
-                    </div>
-                    <button type="submit" class="btn btn-success">Đặt hàng</button>
-                </form>
+                </div>
             </div>
         </div>
 
     </div>
 
-    <script>
-        function showOrderForm() {
-            document.getElementById('orderForm').style.display = 'block';
-        }
+<script>
+        document.getElementById("orderForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Ngăn chặn reload trang
 
+        const productId = document.querySelector("input[name='ProductId']").value;
+        const price = document.querySelector("input[name='Price']").value;
+
+        fetch('/Order/PlaceOrder', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                ProductId: productId,
+                Price: price
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // showToast(data.message, data.success ? 'success' : 'danger');
+            
+
+            if (data.success) {
+                
+                //Ẩn modal sau khi đặt hàng thành công
+                const orderModal = new bootstrap.Modal(document.getElementById("orderModal"));
+                orderModal.hide();
+            }
+        })
+        .catch(error => console.error('Lỗi:', error));
+    });
+               
+       
+        
+</script>
+    <script>
         function addToCart(productId) {
             fetch(`/Cart/AddToCart?productId=${productId}`)
                 .then(response => response.json())
@@ -137,5 +142,5 @@
                 .catch(error => console.error('Error:', error));
         }
     </script>
-</body>
-</html>
+    
+

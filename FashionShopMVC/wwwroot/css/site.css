@@ -17,9 +17,7 @@ html {
   min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
-}
+
 .navbar-nav .nav-item {
     padding: 0 10px;
     color: #212529;

@@ -2,9 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
+
 using FashionShopMVC.Data;
 using FashionShopMVC.Models;
 
@@ -21,48 +19,49 @@ namespace FashionShopMVC.Controllers
 
         // 🛒 Xử lý đặt hàng
         [HttpPost]
-        public async Task<IActionResult> PlaceOrder(int ProductId, decimal Price)
+        public async Task<IActionResult> PlaceOrder([FromBody] OrderRequestModel request)
         {
-            // Lấy UserId từ Session (đã lưu dưới dạng string)
             var userIdStr = HttpContext.Session.GetString("UserId");
-            if (string.IsNullOrEmpty(userIdStr)) // Kiểm tra nếu chưa đăng nhập
+            if (string.IsNullOrEmpty(userIdStr))
             {
-                TempData["ErrorMessage"] = "Bạn cần đăng nhập để đặt hàng!";
-                return RedirectToAction("Login", "AuthController");
+                return Json(new { success = false, message = "Bạn cần đăng nhập để đặt hàng!" });
             }
 
-            // Chuyển UserId từ string sang int
             if (!int.TryParse(userIdStr, out int userId))
             {
-                TempData["ErrorMessage"] = "Lỗi lấy UserId từ session!";
-                return RedirectToAction("Login", "AuthController");
+                return Json(new { success = false, message = "Lỗi lấy UserId từ session!" });
             }
 
-            // Tạo đơn hàng mới
             var order = new Order
             {
                 UserId = userId,
-                TotalPrice = Price,
+                TotalPrice = request.Price,
                 Status = "Pending",
                 CreatedAt = DateTime.Now
             };
             _context.Orders.Add(order);
             await _context.SaveChangesAsync();
 
-            // Thêm chi tiết đơn hàng
             var orderDetail = new OrderDetail
             {
                 OrderId = order.Id,
-                ProductId = ProductId,
+                ProductId = request.ProductId,
                 Quantity = 1,
-                Price = Price
+                Price = request.Price
             };
             _context.OrderDetails.Add(orderDetail);
             await _context.SaveChangesAsync();
 
-            TempData["SuccessMessage"] = "Đặt hàng thành công!";
-            return RedirectToAction("OrderHistory");
+            return Json(new { success = true, message = "Đặt hàng thành công!" });
         }
+
+        // Model để nhận dữ liệu từ AJAX
+        public class OrderRequestModel
+        {
+            public int ProductId { get; set; }
+            public decimal Price { get; set; }
+        }
+
 
         // 📜 Lịch sử đơn hàng của người dùng
         public async Task<IActionResult> OrderHistory()

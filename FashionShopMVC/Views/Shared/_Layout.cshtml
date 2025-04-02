@@ -4,16 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - FashionShopMVC</title>
+    <link rel="stylesheet" href="~/css/register.css" /> <!-- Sử dụng cùng file CSS như trang đăng ký -->
+    <link rel="stylesheet" href="~/css/site.css" /> 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/FashionShopMVC.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css">
 
     <!-- Các thẻ meta và link khác -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     
     <link rel="icon" type="image/x-icon" href="~/favicon.ico">
+
+    
 </head>
 <body>
     <header class="box-shadow" >
@@ -41,6 +43,11 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link " asp-area="" asp-controller="Home" asp-action="PhuKien">PHỤ KIỆN</a>
+                        </li> <li class="nav-item">
+                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="PhuKien">PHỤ KIỆN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " asp-area="" asp-controller="Order" asp-action="OrderHistory">Lịch sử Order</a>
                         </li>
                     </ul>
                     <!-- Dropdown menu bên phải -->
@@ -57,7 +64,7 @@
                        
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user"></i> <!-- Icon person -->
+                                <i class="bi bi-person-circle" style="font-size:24px"></i> <!-- Icon person -->
                             </a>
                            
                             <ul class="dropdown-menu dropdown-menu-end"  aria-labelledby="navbarDropdown">
@@ -91,6 +98,7 @@
         
         <main role="main"  style="height:auto; margin-bottom:300px " >
             @RenderBody()
+            
         </main>
     </div>
 
@@ -143,9 +151,12 @@
             </div>
         </div>
     </footer>
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>
