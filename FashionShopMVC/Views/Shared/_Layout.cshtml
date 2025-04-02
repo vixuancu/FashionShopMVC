@@ -18,140 +18,144 @@
     
 </head>
 <body>
-    <header class="box-shadow" >
+    <div class="page-wrapper">
+        <header class="box-shadow">
 
-        <nav class="container navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom  ">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FashionShopMVC</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark " asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Giaynu">GIÀY NỮ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Giaynam">GIÀY NAM</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="BaLo">BA LÔ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="PhuKien">PHỤ KIỆN</a>
-                        </li> <li class="nav-item">
-                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="PhuKien">PHỤ KIỆN</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " asp-area="" asp-controller="Order" asp-action="OrderHistory">Lịch sử Order</a>
-                        </li>
-                    </ul>
-                    <!-- Dropdown menu bên phải -->
-                    <ul class="navbar-nav d-sm-inline-flex align-items-center">
-                        <!-- xin chao username-->
-                        @if (Context.Session.GetString("UserName") != null)
-                        {
-                            <li>
-                                <div class="me-3">
-                                    Xin chào, @Context.Session.GetString("UserName")
-                                </div>
+            <nav class="container navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom  ">
+                <div class="container-fluid">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FashionShopMVC</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark " asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
                             </li>
-                        }
-                       
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-person-circle" style="font-size:24px"></i> <!-- Icon person -->
-                            </a>
-                           
-                            <ul class="dropdown-menu dropdown-menu-end"  aria-labelledby="navbarDropdown">
-                                @if (Context.Session.GetString("UserName") != null)
-                                {
-                                    <!-- Đã đăng nhập -->
-                                    
-                                    <li>
-                                        <a class="dropdown-item" asp-controller="Auth" asp-action="Logout">Đăng xuất</a>
-                                    </li>
-                                }
-                                else
-                                {
-                                    <!-- Chưa đăng nhập -->
-                                    <li>
-                                        <a class="dropdown-item" asp-controller="Auth" asp-action="Login">Đăng nhập</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" asp-controller="Auth" asp-action="Register">Đăng ký</a>
-                                    </li>
-                                }
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        
-    </header>
-    <div >
-        
-        <main role="main"  style="height:auto; margin-bottom:300px " >
-            @RenderBody()
-            
-        </main>
-    </div>
+                            <li class="nav-item">
+                                <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Giaynu">GIÀY NỮ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Giaynam">GIÀY NAM</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " asp-area="" asp-controller="Home" asp-action="BaLo">BA LÔ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " asp-area="" asp-controller="Home" asp-action="PhuKien">PHỤ KIỆN</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " asp-area="" asp-controller="Home" asp-action="PhuKien">PHỤ KIỆN</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " asp-area="" asp-controller="Order" asp-action="OrderHistory">Lịch sử Order</a>
+                            </li>
+                        </ul>
+                        <!-- Dropdown menu bên phải -->
+                        <ul class="navbar-nav d-sm-inline-flex align-items-center">
+                            <!-- xin chao username-->
+                            @if (Context.Session.GetString("UserName") != null)
+                            {
+                                <li>
+                                    <div class="me-3">
+                                        Xin chào, @Context.Session.GetString("UserName")
+                                    </div>
+                                </li>
+                            }
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            <div class="row">
-                <!-- Cột 1: Gọi mua hàng -->
-                <div class="col-md-4">
-                    <h5>GỌI MUA HÀNG ONLINE</h5>
-                    <p>(08:00 - 21:00 mỗi ngày)</p>
-                    <p><strong>1900.633.349</strong></p>
-                    <p>Tôi có các ngày trong tuần (Từ thứ 2 đến Chủ Nhật)</p>
-                </div>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-circle" style="font-size:24px"></i> <!-- Icon person -->
+                                </a>
 
-                <!-- Cột 2: Góp ý & Khiếu nại -->
-                <div class="col-md-4">
-                    <h5>GÓP Ý & KHIẾU NẠI</h5>
-                    <p>(08:30 - 20:30)</p>
-                    <p><strong>1900.633.349</strong></p>
-                    <p>Tôi có các ngày trong tuần (Từ thứ 2 đến Chủ Nhật)</p>
-                </div>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    @if (Context.Session.GetString("UserName") != null)
+                                    {
+                                        <!-- Đã đăng nhập -->
 
-                <!-- Cột 3: Thông tin -->
-                <div class="col-md-2">
-                    <h5>THÔNG TIN</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Giới thiệu về MWC</a></li>
-                        <li><a href="#">Infor Web thương mại điện tử</a></li>
-                        <li><a href="#">Than Phiền & Góp Ý</a></li>
-                        <li><a href="#">Chính sách và quy định</a></li>
-                    </ul>
+                                        <li>
+                                            <a class="dropdown-item" asp-controller="Auth" asp-action="Logout">Đăng xuất</a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <!-- Chưa đăng nhập -->
+                                        <li>
+                                            <a class="dropdown-item" asp-controller="Auth" asp-action="Login">Đăng nhập</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" asp-controller="Auth" asp-action="Register">Đăng ký</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+            </nav>
 
-                <!-- Cột 4: FAQ -->
-                <div class="col-md-2">
-                    <h5>FAQ</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Vận chuyển</a></li>
-                        <li><a href="#">Chính sách đổi trả</a></li>
-                        <li><a href="#">Chính sách bảo hành</a></li>
-                    </ul>
-                </div>
-            </div>
+        </header>
+        <div>
 
-            <!-- Dòng bản quyền -->
-            <div class="row mt-3">
-                <div class="col-12 text-center">
-                    &copy; 2025 - FashionShopMVC - <a class="list-unstyled" href="https://github.com/vixuancu/book-selling-website">  https://github.com/vixuancu/book-selling-website</a>
-                </div>
-            </div>
+            <main role="main" style="height:auto;  " >
+                @RenderBody()
+
+            </main>
         </div>
-    </footer>
-    
+
+        <footer class="border-top footer text-muted">
+            <div class="container">
+                <div class="row">
+                    <!-- Cột 1: Gọi mua hàng -->
+                    <div class="col-12 col-md-4 mb-3 mb-md-0">
+                        <h5>GỌI MUA HÀNG ONLINE</h5>
+                        <p>(08:00 - 21:00 mỗi ngày)</p>
+                        <p><strong>1900.633.349</strong></p>
+                        <p>Tôi có các ngày trong tuần (Từ thứ 2 đến Chủ Nhật)</p>
+                    </div>
+
+                    <!-- Cột 2: Góp ý & Khiếu nại -->
+                    <div class="col-12 col-md-4 mb-3 mb-md-0">
+                        <h5>GÓP Ý & KHIẾU NẠI</h5>
+                        <p>(08:30 - 20:30)</p>
+                        <p><strong>1900.633.349</strong></p>
+                        <p>Tôi có các ngày trong tuần (Từ thứ 2 đến Chủ Nhật)</p>
+                    </div>
+
+                    <!-- Cột 3: Thông tin -->
+                    <div class="col-6 col-md-2 mb-3 mb-md-0">
+                        <h5>THÔNG TIN</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Giới thiệu về MWC</a></li>
+                            <li><a href="#">Infor Web thương mại điện tử</a></li>
+                            <li><a href="#">Than Phiền & Góp Ý</a></li>
+                            <li><a href="#">Chính sách và quy định</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Cột 4: FAQ -->
+                    <div class="col-6 col-md-2 mb-3 mb-md-0">
+                        <h5>FAQ</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Vận chuyển</a></li>
+                            <li><a href="#">Chính sách đổi trả</a></li>
+                            <li><a href="#">Chính sách bảo hành</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Dòng bản quyền -->
+                <div class="row mt-3">
+                    <div class="col-12 text-center">
+                        © 2025 - FashionShopMVC
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+   
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

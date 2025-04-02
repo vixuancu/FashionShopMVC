@@ -29,10 +29,10 @@
     <span class="d-block text-center">
         <h2>Sản phẩm bán chạy</h2>
     </span>
-    <div class="row mt-5">
+    <div class="row mt-5 ">
         @foreach (var product in Model)
         {
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="col-10 col-sm-6 col-md-4 col-lg-3 mb-4 mobile-center">
                 <!-- Responsive Grid -->
                 <div class="card h-100 shadow-sm">
                     <a href="/Home/Details/@product.Id">
