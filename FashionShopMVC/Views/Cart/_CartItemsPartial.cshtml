@@ -1,0 +1,13 @@
+﻿
+@model IEnumerable<dynamic>   
+
+@foreach (var item in Model)
+{
+    <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+        <div>
+            <strong>@item.Product.Name</strong><br />
+            Số lượng: @item.Quantity
+        </div>
+        <span>@(item.Product.Price * item.Quantity) đ</span>
+    </div>
+}

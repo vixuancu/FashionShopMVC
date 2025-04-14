@@ -10,10 +10,21 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Thêm dịch vụ Session
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(60); // Thời gian timeout của session
+    options.IdleTimeout = TimeSpan.FromMinutes(60);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+
+// Thêm authentication
+builder.Services.AddAuthentication("CookieAuth")
+    .AddCookie("CookieAuth", options =>
+    {
+        options.Cookie.Name = "FashionShopMVC.Cookie";
+        options.LoginPath = "/Auth/Login";
+        options.LogoutPath = "/Auth/Logout";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+    });
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -27,9 +38,10 @@ if (!app.Environment.IsDevelopment())
 app.UseStaticFiles();
 
 app.UseRouting();
-// Kích hoạt Session
-app.UseSession();
 
+// Kích hoạt Session và Authentication
+app.UseSession();
+app.UseAuthentication(); // Thêm dòng này
 app.UseAuthorization();
 
 app.MapControllerRoute(

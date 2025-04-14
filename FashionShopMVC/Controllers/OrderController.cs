@@ -70,13 +70,13 @@ namespace FashionShopMVC.Controllers
             if (string.IsNullOrEmpty(userIdStr))
             {
                 TempData["ErrorMessage"] = "Bạn cần đăng nhập để xem lịch sử đơn hàng!";
-                return RedirectToAction("Login", "Account");
+                return RedirectToAction("Login", "Auth");
             }
 
             if (!int.TryParse(userIdStr, out int userId))
             {
                 TempData["ErrorMessage"] = "Lỗi lấy UserId từ session!";
-                return RedirectToAction("Login", "Account");
+                return RedirectToAction("Login", "Auth");
             }
 
             var orders = await _context.Orders

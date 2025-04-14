@@ -31,20 +31,62 @@ html {
 .main-content {
     flex: 1 0 auto; /* Nội dung chính mở rộng để đẩy footer xuống dưới */
 }
-.navbar-nav .nav-item {
+/*.navbar-nav .nav-item {
     padding: 0 10px;
     color: #212529;
 }
 .navbar-nav .nav-item .nav-link{
     color: #212529;
 }
+*/
+/* Đảm bảo navbar responsive */
+.navbar {
+    padding: 0.5rem 1rem;
+}
 
-@media (max-width: 575.98px) {
-    .mb-custom {
-        margin-bottom: 600px !important;
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+/* Responsive cho mobile và tablet nhỏ (dưới 768px) */
+@media (max-width: 767.98px) {
+    .navbar-brand {
+        font-size: 1.2rem; /* Giảm kích thước logo */
     }
-}    
-    /* Footer styling */
+
+    .nav-link {
+        padding: 0.5rem; /* Giảm padding */
+        text-align: center; /* Căn giữa khi thu gọn */
+    }
+
+    .navbar-nav {
+        margin-top: 0.5rem; /* Khoảng cách khi menu thu gọn */
+    }
+
+        .navbar-nav .nav-item {
+            margin: 0.2rem 0; /* Khoảng cách giữa các mục */
+        }
+
+        .navbar-nav .dropdown-menu {
+            text-align: center; /* Căn giữa dropdown */
+        }
+
+        .navbar-nav .me-3 {
+            margin-right: 0; /* Xóa margin phải */
+            margin-bottom: 0.5rem; /* Thêm khoảng cách dưới */
+        }
+}
+
+/* Tablet lớn hơn (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .navbar-brand {
+        font-size: 1.3rem;
+    }
+
+    .nav-link {
+        padding: 0.5rem 0.75rem;
+    }
+}    /* Footer styling */
 footer {
     position: static !important;
     background-color: #f8f9fa;

@@ -1,4 +1,7 @@
-﻿@model List<Product>
+﻿@{
+    ViewData["Title"] = "Admin";
+}
+@model List<Product>
 
 <div class="container">
     <h2>Quản lý sản phẩm</h2>
@@ -40,5 +43,5 @@
 
     <a asp-action="Create" class="btn btn-primary">Thêm sản phẩm</a>
 </div>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
 

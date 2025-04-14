@@ -100,47 +100,42 @@
     </div>
 
 <script>
-        document.getElementById("orderForm").addEventListener("submit", function (event) {
-        event.preventDefault(); // Ngăn chặn reload trang
+    document.getElementById("orderForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Ngăn reload
 
-        const productId = document.querySelector("input[name='ProductId']").value;
-        const price = document.querySelector("input[name='Price']").value;
+        // Lấy toàn bộ dữ liệu form
+        const formData = new FormData(this);
+
+        // Chuyển sang object để gửi JSON
+        const formObject = {};
+        formData.forEach((value, key) => formObject[key] = value);
 
         fetch('/Order/PlaceOrder', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                ProductId: productId,
-                Price: price
-            })
+            body: JSON.stringify(formObject)
         })
         .then(response => response.json())
         .then(data => {
-            // showToast(data.message, data.success ? 'success' : 'danger');
-            
+            // Hiện thông báo (giả sử bạn có hàm showToast)
+            showToast(data.message, data.success ? 'success' : 'danger');
 
             if (data.success) {
-                
-                //Ẩn modal sau khi đặt hàng thành công
-                const orderModal = new bootstrap.Modal(document.getElementById("orderModal"));
-                orderModal.hide();
+                // Đóng modal đúng cách: lấy instance đã mở
+                const modalElement = document.getElementById("orderModal");
+                const modalInstance = bootstrap.Modal.getInstance(modalElement);
+                modalInstance.hide();
+
+                // (tuỳ chọn) reset form:
+                document.getElementById("orderForm").reset();
             }
         })
         .catch(error => console.error('Lỗi:', error));
     });
-               
-       
-        
 </script>
-    <script>
-        function addToCart(productId) {
-            fetch(`/Cart/AddToCart?productId=${productId}`)
-                .then(response => response.json())
-                .then(data => alert(data.message))
-                .catch(error => console.error('Error:', error));
-        }
-    </script>
+
+
     
 

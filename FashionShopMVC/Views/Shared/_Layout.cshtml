@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using System.Text.Json
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -6,7 +7,7 @@
     <title>@ViewData["Title"] - FashionShopMVC</title>
     <link rel="stylesheet" href="~/css/register.css" /> <!-- Sử dụng cùng file CSS như trang đăng ký -->
     <link rel="stylesheet" href="~/css/site.css" /> 
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/FashionShopMVC.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css">
@@ -14,91 +15,96 @@
     <!-- Các thẻ meta và link khác -->
     
     <link rel="icon" type="image/x-icon" href="~/favicon.ico">
-
+    <style>
+        .badge {
+            font-size: 0.7rem;
+        }
+    </style>
     
 </head>
 <body>
     <div class="page-wrapper">
         <header class="box-shadow">
-
-            <nav class="container navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom  ">
+            <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom">
                 <div class="container-fluid">
                     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FashionShopMVC</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                         <ul class="navbar-nav flex-grow-1">
                             <li class="nav-item">
-                                <a class="nav-link text-dark " asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Giaynu">GIÀY NỮ</a>
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Giaynu">GIÀY NỮ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Giaynam">GIÀY NAM</a>
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Giaynam">GIÀY NAM</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link " asp-area="" asp-controller="Home" asp-action="BaLo">BA LÔ</a>
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="BaLo">BA LÔ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link " asp-area="" asp-controller="Home" asp-action="PhuKien">PHỤ KIỆN</a>
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="PhuKien">PHỤ KIỆN</a>
                             </li>
+                            <!-- Xóa mục PHỤ KIỆN trùng lặp -->
                             <li class="nav-item">
-                                <a class="nav-link " asp-area="" asp-controller="Home" asp-action="PhuKien">PHỤ KIỆN</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " asp-area="" asp-controller="Order" asp-action="OrderHistory">Lịch sử Order</a>
+                                <a class="nav-link" asp-area="" asp-controller="Order" asp-action="OrderHistory">LỊCH SỬ ORDER</a>
                             </li>
                         </ul>
                         <!-- Dropdown menu bên phải -->
                         <ul class="navbar-nav d-sm-inline-flex align-items-center">
-                            <!-- xin chao username-->
                             @if (Context.Session.GetString("UserName") != null)
                             {
-                                <li>
-                                    <div class="me-3">
-                                        Xin chào, @Context.Session.GetString("UserName")
-                                    </div>
+                                <li class="nav-item me-3">
+                                    <span>Xin chào, @Context.Session.GetString("UserName")</span>
                                 </li>
                             }
-
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="bi bi-person-circle" style="font-size:24px"></i> <!-- Icon person -->
+                                    <i class="bi bi-person-circle" style="font-size: 24px;"></i>
                                 </a>
-
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     @if (Context.Session.GetString("UserName") != null)
                                     {
-                                        <!-- Đã đăng nhập -->
-
-                                        <li>
-                                            <a class="dropdown-item" asp-controller="Auth" asp-action="Logout">Đăng xuất</a>
-                                        </li>
+                                        <li><a class="dropdown-item" asp-controller="Auth" asp-action="Logout">Đăng xuất</a></li>
                                     }
                                     else
                                     {
-                                        <!-- Chưa đăng nhập -->
-                                        <li>
-                                            <a class="dropdown-item" asp-controller="Auth" asp-action="Login">Đăng nhập</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" asp-controller="Auth" asp-action="Register">Đăng ký</a>
-                                        </li>
+                                        <li><a class="dropdown-item" asp-controller="Auth" asp-action="Login">Đăng nhập</a></li>
+                                        <li><a class="dropdown-item" asp-controller="Auth" asp-action="Register">Đăng ký</a></li>
                                     }
                                 </ul>
                             </li>
+                            <!-- cart-->
+                            @if (Context.Session.GetString("UserName") != null)
+                            {
+                                <li class="nav-item me-3 position-relative">
+                                    <a href="#" class="position-relative text-dark " data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas">
+                                        <i class="bi bi-cart fs-5"></i>
+                                        <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark text-white">
+                                            0
+                                        </span>
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item me-3 position-relative">
+                                    <a class="nav-link disabled" href="#">
+                                        <i class="bi bi-cart" style="font-size: 24px;"></i>
+                                    </a>
+                                </li>
+                            }
                         </ul>
                     </div>
                 </div>
             </nav>
-
         </header>
         <div>
 
-            <main role="main" style="height:auto;  " >
+            <main role="main" style="height:auto; margin-bottom:200px;" >
                 @RenderBody()
 
             </main>
@@ -153,13 +159,141 @@
                 </div>
             </div>
         </footer>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="cartOffcanvasLabel">Giỏ hàng</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body" id="cart-items">
+                <!-- Nội dung giỏ hàng sẽ được load ở đây -->
+            </div>
+        </div>
 
     </div>
-   
+    
+    <!-- Toast- thông báo -->
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 1055">
+        <div id="alertToast" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div id="alertToastBody" class="toast-body"></div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     
+    <script>
+            function showToast(message, type = 'primary') {
+                var toastEl = document.getElementById('alertToast');
+                var toastBody = document.getElementById('alertToastBody');
+
+                // Đổi màu dựa vào type (primary, danger, success, warning)
+                toastEl.className = `toast align-items-center text-bg-${type} border-0`;
+
+                toastBody.innerText = message;
+
+                var toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+                toast.show();
+            }
+
+            // 👇 Xử lý từ TempData nếu có
+            window.onload = function () {
+                var tempMessage = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(TempData["ErrorMessage"] ?? ""));
+                if (tempMessage) {
+                    showToast(tempMessage, 'danger');
+                }
+            };
+
+            // add to cart
+                  function addToCart(productId) {
+            fetch(`/Cart/AddToCart?productId=${productId}`, { method: "POST" })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(errorData => {
+                            throw new Error(errorData.message || `Server error: ${response.status}`);
+                        });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success === false) {
+                        showToast(data.message, 'warning');
+                        return;
+                    }
+                    showToast(data.message, 'success');
+                    const cartCount = document.getElementById("cart-count");
+                    if (cartCount && data.cartCount !== undefined) {
+                        cartCount.textContent = data.cartCount;
+                    }
+                })
+                .catch(error => {
+                    console.error("Lỗi:", error);
+                    let userMessage = error.message.includes("FOREIGN KEY constraint")
+                        ? "Sản phẩm không tồn tại trong hệ thống!"
+                        : error.message.includes("Vui lòng đăng nhập")
+                            ? error.message
+                            : "Đã xảy ra lỗi, vui lòng thử lại!";
+                    showToast(userMessage, 'danger');
+                });
+        }
+
+
+            // load cart
+                 function loadCartItems() {
+            const cartContainer = document.getElementById('cart-items');
+            cartContainer.innerHTML = '<p>Đang tải...</p>';
+
+            fetch('/Cart/GetCartItems')
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(errorData => {
+                            throw new Error(errorData.message || 'Không thể tải giỏ hàng!');
+                        });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (!data.success) {
+                        cartContainer.innerHTML = '<p>' + (data.message || 'Giỏ hàng trống!') + '</p>';
+                        return;
+                    }
+                    if (data.items.length === 0) {
+                        cartContainer.innerHTML = '<p>Giỏ hàng trống!</p>';
+                        return;
+                    }
+                    cartContainer.innerHTML = data.items.map(item => `
+                        <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+                            <div>
+                                <strong>${item.ProductName}</strong><br />
+                                Số lượng: ${item.Quantity}
+                            </div>
+                            <span>${(item.Price * item.Quantity).toLocaleString()} đ</span>
+                        </div>
+                    `).join('');
+                })
+                .catch(error => {
+                    console.error('Error loading cart:', error);
+                    cartContainer.innerHTML = '<p>' + (error.message || 'Đã xảy ra lỗi khi tải giỏ hàng!') + '</p>';
+                });
+        }
+
+        // Gọi hàm mỗi khi offcanvas được mở
+        const cartOffcanvas = document.getElementById('cartOffcanvas');
+        if (cartOffcanvas) {
+            cartOffcanvas.addEventListener('show.bs.offcanvas', function () {
+                loadCartItems();
+            });
+        } else {
+            console.warn("Không tìm thấy phần tử với id 'cartOffcanvas'");
+        }
+    </script>
+    
+
+
+
     @await RenderSectionAsync("Scripts", required: false)
 
 </body>
